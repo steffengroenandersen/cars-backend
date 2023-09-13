@@ -1,4 +1,4 @@
-package sem3.cars.repository;
+package sem3.cars.repositories;
 
 import sem3.cars.entity.Car;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,7 +38,7 @@ class CarRepositoryTest {
     
     @Test
     public void testGetByBrand(){
-        assertEquals(1, carRepository.getByBrand("Volvo"));
+        assertEquals(1, carRepository.getByBrand("Volvo").size());
     }
     
 }
