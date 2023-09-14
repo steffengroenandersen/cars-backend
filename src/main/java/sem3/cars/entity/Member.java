@@ -5,6 +5,10 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -23,6 +27,10 @@ public class Member {
     private String zip;
     private boolean approved;
     private int ranking;
+    @CreationTimestamp
+    private LocalDateTime created;
+    @UpdateTimestamp
+    private LocalDateTime lastEdited;
     
     public Member(String user, String password, String email,
                   String firstName, String lastName, String street, String city, String zip){
