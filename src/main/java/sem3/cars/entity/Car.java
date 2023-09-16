@@ -30,7 +30,7 @@ public class Car {
     @CreationTimestamp
     private LocalDateTime created;
     @UpdateTimestamp
-    private LocalDateTime lastEdited;
+    private LocalDateTime edited;
     
     public Car(String brand, String model, double pricePrDay, int bestDiscount){
         this.brand = brand;
