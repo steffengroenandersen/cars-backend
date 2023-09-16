@@ -4,11 +4,9 @@ import sem3.cars.entity.Car;
 import sem3.cars.entity.Member;
 import sem3.cars.repositories.CarRepository;
 import sem3.cars.repositories.MemberRepository;
-
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +29,7 @@ public class DeveloperData implements ApplicationRunner {
         List<Member> members = MemberTestDataFactory.generateTestMembers("test12");
         memberRepository.saveAll(members);
      
-        Car car = new Car("Ford", "F150", 15000, 500);
-        List<Car> cars = new ArrayList<>();
-        cars.add(car);
+        List<Car> cars = CarTestDataFactory.generateTestCars();
         carRepository.saveAll(cars);
     }
 }
