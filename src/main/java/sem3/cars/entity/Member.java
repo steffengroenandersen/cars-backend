@@ -2,6 +2,8 @@ package sem3.cars.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +11,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -31,6 +35,18 @@ public class Member {
     private LocalDateTime created;
     @UpdateTimestamp
     private LocalDateTime lastEdited;
+    
+    
+    @OneToMany(mappedBy = "member")
+    List<Reservation> reservations;
+    
+    public void addReservation(Reservation reservation){
+        if(reservations == null){
+            reservations = new ArrayList<>();
+        }
+        reservations.add(reservation);
+    }
+    
     
     public Member(String user, String password, String email,
                   String firstName, String lastName, String street, String city, String zip){

@@ -46,7 +46,6 @@ public class MemberResponse {
             this.edited = m.getLastEdited();
             this.approved = m.isApproved();
             this.ranking = m.getRanking();
-            
         }
     }
     
