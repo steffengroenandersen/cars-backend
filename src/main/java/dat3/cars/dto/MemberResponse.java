@@ -43,7 +43,7 @@ public class MemberResponse {
         this.zip = m.getZip();
         if(includeAll) {
             this.created = m.getCreated();
-            this.edited = m.getLastEdited();
+            this.edited = m.getEdited();
             this.approved = m.isApproved();
             this.ranking = m.getRanking();
         }

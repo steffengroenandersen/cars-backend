@@ -20,10 +20,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "USER_TYPE")
 public class Member extends UserWithRoles {
-    @Id
-    private String username;
-    private String email;
-    private String password;
+
     private String firstName;
     private String lastName;
     private String street;
@@ -31,10 +28,7 @@ public class Member extends UserWithRoles {
     private String zip;
     private boolean approved;
     private int ranking;
-    @CreationTimestamp
-    private LocalDateTime created;
-    @UpdateTimestamp
-    private LocalDateTime lastEdited;
+
     
     
     @OneToMany(mappedBy = "member")
@@ -48,11 +42,9 @@ public class Member extends UserWithRoles {
     }
     
     
-    public Member(String user, String password, String email,
+    public Member(String username, String password, String email,
                   String firstName, String lastName, String street, String city, String zip){
-        this.username = user;
-        this.email = email;
-        this.password = password;
+        super(username, password, email);
         this.firstName = firstName;
         this.lastName = lastName;
         this.street = street;

@@ -30,5 +30,7 @@ public class DeveloperData implements ApplicationRunner {
      
         List<Car> cars = CarTestDataFactory.generateTestCars();
         carRepository.saveAll(cars);
+        Member newUserMember = new Member("farblossom", "test12", "email", "Jens", "Jensen", "hvid", "acity", "2500");
+        memberRepository.save(newUserMember);
     }
 }
