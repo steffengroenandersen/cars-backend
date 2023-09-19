@@ -13,6 +13,8 @@ import dat3.cars.repositories.MemberRepository;
 import dat3.cars.repositories.ReservationRepository;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ReservationService {
@@ -27,6 +29,10 @@ public class ReservationService {
         this.reservationRepository = reservationRepository;
     }
     
+    public List<ReservationResponse> getReseverationByUsername(String username){
+        List<Reservation> reservations = reservationRepository.findAll();
+        return reservations.stream().map(res -> new ReservationResponse(res)).collect(Collectors.toList());
+    }
     public ReservationResponse reserveCar(ReservationRequest body){
         if(body.getDate().isBefore(LocalDate.now())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Date in past not allowed");
