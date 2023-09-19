@@ -13,6 +13,6 @@ import java.time.LocalDate;
 public class ReservationRequest {
     int carId;
     String userName;
-    @JsonFormat(pattern = "yyy-MM-dd", shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     LocalDate date;
 }
