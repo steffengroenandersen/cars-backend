@@ -32,12 +32,15 @@ public class Member extends UserWithRoles {
     
     
     @OneToMany(mappedBy = "member")
-    List<Reservation> reservations;
+    List<Reservation> reservations = new ArrayList<>();
     
     public void addReservation(Reservation reservation){
+        /*
         if(reservations == null){
             reservations = new ArrayList<>();
         }
+        
+         */
         reservations.add(reservation);
     }
     

@@ -35,13 +35,16 @@ public class Car {
     private LocalDateTime edited;
     
     @OneToMany(mappedBy = "car")
-    List<Reservation> reservations;
+    List<Reservation> reservations = new ArrayList<>();
    
     public void addReservation(Reservation reservation){
+        /*
         if(reservations == null){
             reservations = new ArrayList<>();
         }
-        addReservation(reservation);
+        
+         */
+        reservations.add(reservation);
     }
     public Car(String brand, String model, double pricePrDay, int bestDiscount){
         this.brand = brand;

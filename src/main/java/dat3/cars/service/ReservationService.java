@@ -32,7 +32,7 @@ public class ReservationService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Date in past not allowed");
         }
         
-        Member member = memberRepository.findById(body.getUserName()).orElseThrow(
+        Member member = memberRepository.findById(body.getUsername()).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No member found with this id"));
         
         Car car = carRepository.findById(body.getCarId()).orElseThrow(
