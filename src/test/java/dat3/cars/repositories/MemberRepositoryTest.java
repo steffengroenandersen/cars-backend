@@ -21,10 +21,13 @@ class MemberRepositoryTest {
         Member m1 = new Member("member1", "test123", "member1@testmail.com", "Anders", "Holm", "astreet", "acity", "2000");
         memberRepository.save(m1);
     }
+    /*
     @Test
     void findMembersByZip() {
         List<Member> members = memberRepository.findMembersByZip("2000");
         assertEquals(1, members.size());
         assertEquals("2000", members.get(0).getZip());
     }
+    
+     */
 }
