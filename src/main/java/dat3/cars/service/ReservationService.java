@@ -13,6 +13,7 @@ import dat3.cars.repositories.MemberRepository;
 import dat3.cars.repositories.ReservationRepository;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,6 +28,17 @@ public class ReservationService {
         this.carRepository = carRepository;
         this.memberRepository = memberRepository;
         this.reservationRepository = reservationRepository;
+    }
+    
+    public List<ReservationResponse> getReservations(){
+        List<Reservation> reservations = reservationRepository.findAll();
+        List<ReservationResponse> response = new ArrayList<>();
+        
+        for(Reservation reservation : reservations){
+            ReservationResponse rr = new ReservationResponse(reservation);
+            response.add(rr);
+        }
+        return response;
     }
     
     public List<ReservationResponse> getReseverationByUsername(String username){

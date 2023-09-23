@@ -15,9 +15,13 @@ public class ReservationController {
     public ReservationController(ReservationService reservationService){
         this.reservationService = reservationService;
     }
-    
+
+    @GetMapping()
+    List<ReservationResponse> getReservations(){
+        return reservationService.getReservations();
+    }
     @GetMapping(path = "/{username}")
-    List<ReservationResponse> getResevertations(@PathVariable String username){
+    List<ReservationResponse> getResevertationsById(@PathVariable String username){
         return reservationService.getReseverationByUsername(username);
     }
     
